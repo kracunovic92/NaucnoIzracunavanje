@@ -1,0 +1,7 @@
+dinosaur.egg-info
+dist
+__pycache__
+.hypothesis/
+.pytest_cache
+.venv
+poetry.lock

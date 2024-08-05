@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dinosaur"
+version = "0.1.0"
+description = ""
+authors = ["kracunovic92 <lazar.kracunovic92@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+scikit-learn = "^1.5.1"
+pandas = "^2.2.2"
+
+[tool.poetry.group.dev.dependencies]
+numpy = "^2.0.1"
+scipy = "^1.14.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
