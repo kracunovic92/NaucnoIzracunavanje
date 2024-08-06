@@ -11,7 +11,7 @@ data = np.array([
     [2, 1, 2, 2, 2]   # Audience
 ])
 
-var_types = ['ordinal', 'ordinal', 'ordinal', 'ordinal', 'ordinal']
+var_types = ['ordinal', 'ordinal', 'ordinal', 'nominal', 'nominal']
 
 
 model = PRINCALS(X=data, n_components=2, var_types=var_types)
