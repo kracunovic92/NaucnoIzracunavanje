@@ -7,18 +7,7 @@ from sklearn.linear_model import LinearRegression
 class PRINCIPALS:
 
     def __init__(self, X, n_components, var_types):
-        """
-        Initializes the PRINCIPALS algorithm.
         
-        Parameters:
-        X : array-like, shape (n_samples, n_features)
-            The input data matrix.
-        n_components : int
-            The number of components to extract.
-        var_types : list of str
-            List indicating the type of each variable/column in X. 
-            Should be a list of 'ordinal', 'nominal', or 'numerical'.
-        """
         self.X = X
         self.n, self.p = X.shape
         self.r = n_components
