@@ -76,7 +76,10 @@ class PRINCALS:
             denominator = Y_j_t.T @ Gj.T @ Gj @ Y_j_t
             A_j_t1 = numerator / denominator
             A.append(A_j_t1)
-            Y_j_t1 = W_j_t1 @ A_j_t1
+
+            y_numerator = W_j_t1 @ A_j_t1
+            y_denominator = A_j_t1.T @ A_j_t1
+            Y_j_t1 = y_numerator / y_denominator
             Y.append(Y_j_t1)
 
         return A, Y
@@ -125,6 +128,21 @@ class PRINCALS:
                 residual = Z - Gj @ W[j]
                 tmp_loss += np.trace(residual.T @ residual)
                 X_star[:, j] = (Gj @ Y_j).reshape(-1)
+
+            for j in self.JM:
+                Gj = G[j]
+                Z_t1_j = Z[:, j].reshape(-1, 1)
+                
+                Gj_Gj_T_inv = np.linalg.pinv(Gj.T @ Gj)
+                W_j_t1 = Gj_Gj_T_inv @ Gj.T @ Z_t1_j
+                
+                W[j] = W_j_t1
+                
+                Y_j = Gj @ W_j_t1
+                Y_0[j] = Y_j 
+                residual = Z - Gj @ W[j]
+                tmp_loss += np.trace(residual.T @ residual)
+                X_star[:,j] = (Gj @ Y_j).reshape(-1)
 
             # Update Z
             Z_new = self.update_Z(W, G)

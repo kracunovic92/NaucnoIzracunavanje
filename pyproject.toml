@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.11"
 scikit-learn = "^1.5.1"
 pandas = "^2.2.2"
+matplotlib = "^3.9.1.post1"
+seaborn = "^0.13.2"
 
 [tool.poetry.group.dev.dependencies]
 numpy = "^2.0.1"
